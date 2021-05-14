@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box !important; 
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  resize: vertical !important;
+}
+
+label {
+  padding: 12px 12px 12px 0 !important;
+  display: inline-block !important;
+}
+
+#btnSave {
+  background-color: #04AA6D !important;
+  color: white !important;
+  padding: 12px 20px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  float: right !important;
+}
+
+#btnClear{
+	margin-top:2% !important;
+  background-color: #ff3e3e!important;
+  color: white !important;
+  padding: 12px 20px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  float: right !important;
+}
+
+#btnClear:hover {
+  background-color: #ff2424!important;
+}
+
+#btnSave:hover {
+  background-color: #45a049 !important;
+}
+
+.container {
+  border-radius: 5px !important;
+  background-color: #f2f2f2 !important;
+  padding: 20px !important;
+}
+
+table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+th, td {
+  text-align: left !important;
+  padding: 8px !important;
+}
+
+tr:nth-child(even){background-color: #f2f2f2 !important}
+
+th {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
