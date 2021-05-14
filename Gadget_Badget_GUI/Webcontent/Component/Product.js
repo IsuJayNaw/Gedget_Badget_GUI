@@ -1,5 +1,6 @@
-//hide alert  
+//hide alert
 $(document).ready(function() {
+
 	$("#alertSuccess").hide();
 	$("#alertError").hide();
 	$("#hidProductIDSave").val("");
@@ -23,7 +24,7 @@ $(document).on("click", "#btnSave", function(event) {
 	}
 	
 	// If valid------------------------
-	var type = ($("#hidProductIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#productID").val() == "") ? "POST" : "PUT";
 
 	$.ajax({
 		url : "ProductAPI",
@@ -66,7 +67,7 @@ function onItemSaveComplete(response, status) {
 		$("#alertError").show();
 	}
 	
-	$("#hidProductIDSave").val("");
+	$("#productID").val("");
 	$("#PRODUCT")[0].reset();
 }
 
@@ -75,7 +76,7 @@ $(document).on("click", ".btnRemove", function(event) {
 	$.ajax({
 		url : "ProductAPI",
 		type : "DELETE",
-		data : "productID=" + $(this).data("productID"),
+		data : "productID=" + event.target.value,
 		dataType : "text",
 		complete : function(response, status) {
 			onItemDeleteComplete(response.responseText, status);
@@ -116,27 +117,27 @@ function onItemDeleteComplete(response, status) {
 // UPDATE==========================================
 $(document).on("click",".btnUpdate",function(event)
 		{
-			$("#hidProductIDSave").val($(this).data("ProductID"));
-			$("#productName").val($(this).closest("tr").find('td:eq(0)').text());
-			$("#productDescription").val($(this).closest("tr").find('td:eq(1)').text());
-			$("#productLocation").val($(this).closest("tr").find('td:eq(2)').text());		
+			$("#productID").val($(this).closest("tr").find('td:eq(0)').text());
+			$("#productName").val($(this).closest("tr").find('td:eq(1)').text());
+			$("#productDescription").val($(this).closest("tr").find('td:eq(2)').text());
+			$("#productLocation").val($(this).closest("tr").find('td:eq(3)').text());		
 		});
 
 
 // CLIENTMODEL=========================================================================
 function validateItemForm() {
 	
-	// product Name
+	// productName
 	if ($("#productName").val().trim() == "") {
 		return "Please insert productName.";
 	}
 	
-	// product Description
+	// productDescription
 	if ($("#productDescription").val().trim() == "") {
 		return "Please insert productDescription.";
 	}
 	
-	// product Location
+	// productLocation
 	if ($("#productLocation").val().trim() == "") {
 		return "Please insert productLocation.";
 	}

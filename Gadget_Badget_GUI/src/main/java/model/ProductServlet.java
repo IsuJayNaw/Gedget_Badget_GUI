@@ -14,12 +14,13 @@ public class ProductServlet {
 		Connection con = null; 
 		try
 		{ 
-			Class.forName("com.mysql.jdbc.Driv");  
+			Class.forName("com.mysql.cj.jdbc.Driv");  
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test?useTimezone=true&serverTimezone=UTC", "root", ""); 
 		} 
 		catch (Exception e) 
 		{
-			e.printStackTrace();} 
+			e.printStackTrace();
+			} 
 		 	return con; 
 		} 
 
@@ -57,7 +58,7 @@ public class ProductServlet {
 		 	return output; 
 		 } 
 
-		//Read Investments
+		//Read Product
 		 public String readProduct() 
 		 { 
 			 String output = ""; 
@@ -71,9 +72,10 @@ public class ProductServlet {
 				 } 
 				 
 				 // Prepare the html table to be displayed
-				 output = "<table border='1'><tr><th>Product Name</th>"
-				 + "<th>Product Description</th>" + 
-				 "<th>Project Location</th>" + 
+				 output = "<table border='1'><tr><th>productID</th>"
+						 + "<th>product Name</th>" +
+				  "<th>product Description</th>" + 
+				 "<th>product Location</th>" + 
 				 "<th>Update</th><th>Remove</th></tr>"; 
 			 
 				 
@@ -91,29 +93,30 @@ public class ProductServlet {
 					 
 					 
 					 // Add into the html table
-					 output += "<tr><td>" + productName + "</td>"; 
+					 output += "<tr><td>" + productID + "</td>"; 
+					 output += "<td>" + productName + "</td>";
 					 output += "<td>" + productDescription + "</td>"; 
 					 output += "<td>" + productLocation + "</td>"; 					 
 					 
 					 
-					 // buttons
+					// buttons
 					 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
-					 + "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-itemid='" 
-					 + productID + "'>" + "</td></tr>";
-				 } 
+							 + "<td><button class='btnRemove btn btn-danger' name='btnRemove' id ='btnRemove' value='"+ productID +"' >Remove</button></td></tr>";
+				 }
+					  
 				 	 con.close(); 
 				 	 // Complete the html table
 				 	 output += "</table>"; 
 			 } 
 			 catch (Exception e) 
 			 { 
-				 output = "Error while reading the product"; 
+				 output = "Error while reading the Product"; 
 				 System.err.println(e.getMessage()); 
 			 } 
 		 	 return output; 
 		 } 
 				
-		//Update Investments
+		//Update Product
 		public String updateProduct(String productID, String productName, String productDescription, String productLocation)
 		{ 
 			 String output = ""; 
@@ -132,7 +135,7 @@ public class ProductServlet {
 				 // binding values
 				 preparedStmt.setString(1, productName); 
 				 preparedStmt.setString(2, productDescription); 
-				 preparedStmt.setString(3, productLocation); 
+				 preparedStmt.setString(3, productLocation);  
 				 preparedStmt.setInt(4, Integer.parseInt(productID)); 
 				 
 				 // execute the statement
@@ -148,7 +151,7 @@ public class ProductServlet {
 			 	return output; 
 			 } 
 		
-			//Delete Investments
+			//Delete Product
 			 public String deleteProduct(String productID) 
 			 { 
 				 String output = ""; 

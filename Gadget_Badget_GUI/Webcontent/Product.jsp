@@ -1,14 +1,15 @@
 <%@page import="model.ProductServlet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+	
+	
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 			<title>Product Management - GadgetBadget</title>
 	
-		<link href="myStyle.css" rel="stylesheet" />
+		<link href="stylsheet.css" rel="stylesheet" />
 		<link rel="stylesheet" href="Views/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="Components/jquery-3.5.0.min.js"></script>
@@ -33,28 +34,30 @@
 						
 						<div class="form-outline mb-4">
 						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Product Name:</label>
+						    <input type="hidden" id="productID" name="productID" value="">
 						    <input type="text" id="productName" class="form-control" name="productName" placeholder="Enter product Name..">						    
 						</div>
 						
-                        <div class="form-outline mb-4">
-						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">product Description:</label>
+						<div class="form-outline mb-4">
+						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Product Description:</label>
 						    <input type="text" id="productDescription" class="form-control" name="productDescription" placeholder="Enter product Description..">						    
 						</div>
-
-                        <div class="form-outline mb-4">
-						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">product Location:</label>
+						
+						<div class="form-outline mb-4">
+						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Product Location:</label>
 						    <input type="text" id="productLocation" class="form-control" name="productLocation" placeholder="Enter product Location..">						    
 						</div>
-
+					
+						 
 											
 						<br> 
-						
+						<div id="alertSuccess" class="alert alert-success"></div>
+						<div id="alertError" class="alert alert-danger"></div>
 						<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary btn-lg btn-block"> 
-						<input type="hidden" id="hidproductIDSave" name="hidproductIDSave" value="">
+						
 					</form>
 				
-					<div id="alertSuccess" class="alert alert-success"></div>
-					<div id="alertError" class="alert alert-danger"></div>			
+								
 			</fieldset>
 			
 			<br> 
